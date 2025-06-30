@@ -3,7 +3,6 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace devlife_backend.Models.Games
 {
-    // Code Roasting Models
     public class CodeChallenge
     {
         [BsonId]
@@ -33,7 +32,6 @@ namespace devlife_backend.Models.Games
         public string Feedback { get; set; } = string.Empty;
     }
 
-    // Code Analysis Models
     public class CodeAnalysisResult
     {
         public string PersonalityType { get; set; } = string.Empty;
@@ -44,7 +42,6 @@ namespace devlife_backend.Models.Games
         public int TotalCommits { get; set; }
     }
 
-    // Dating Models
     public class DatingProfile
     {
         [BsonId]
@@ -76,7 +73,6 @@ namespace devlife_backend.Models.Games
         public string Message { get; set; } = string.Empty;
     }
 
-    // Meeting Escape Models
     public class MeetingExcuse
     {
         [BsonId]
@@ -96,7 +92,6 @@ namespace devlife_backend.Models.Games
         public List<string> Tags { get; set; } = new();
     }
 
-    // Horoscope Models
     public class HoroscopeResult
     {
         public string ZodiacSign { get; set; } = string.Empty;

@@ -8,7 +8,6 @@ var builder = WebApplication.CreateBuilder(args);
 Console.WriteLine("🚀 DevLife Portal starting...");
 Console.WriteLine($"🌍 Environment: {builder.Environment.EnvironmentName}");
 
-// 🚀 TEMPORARY CORS FIX - Add this before other services
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
@@ -23,7 +22,6 @@ builder.Services.AddAllDevLifeServices(builder.Configuration);
 
 var app = builder.Build();
 
-// 🚀 ENABLE CORS FIRST
 app.UseCors();
 
 app.ConfigureDevLifeApp();

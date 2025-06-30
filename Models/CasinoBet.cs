@@ -44,7 +44,6 @@ namespace devlife_backend.Models
         [Column("luck_multiplier")]
         public double LuckMultiplier { get; set; } = 1.0;
 
-        // Navigation
         public virtual User User { get; set; } = null!;
     }
 }

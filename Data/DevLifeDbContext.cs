@@ -1,4 +1,5 @@
-﻿using devlife_backend.Data.Configurations;
+﻿using System.Reflection;
+using devlife_backend.Data.Configurations;
 using devlife_backend.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,12 +18,7 @@ namespace devlife_backend.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // Apply all entity configurations
-            modelBuilder.ApplyConfiguration(new UserConfiguration());
-            modelBuilder.ApplyConfiguration(new UserSessionConfiguration());
-            modelBuilder.ApplyConfiguration(new CasinoBetConfiguration());
-            modelBuilder.ApplyConfiguration(new BugChaseGameSessionConfiguration());
-
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             ConfigureGlobalSettings(modelBuilder);
             SeedInitialData(modelBuilder);
         }
@@ -63,7 +59,7 @@ namespace devlife_backend.Data
                     FirstName = "Demo",
                     LastName = "User",
                     BirthDate = new DateTime(1995, 6, 15),
-                    ZodiacSign = "Gemini", // English zodiac sign
+                    ZodiacSign = "Gemini",
                     TechStack = "React, JavaScript, Node.js",
                     ExperienceLevel = "Middle",
                     TotalPoints = 1000,
@@ -79,7 +75,7 @@ namespace devlife_backend.Data
                     FirstName = "Leo",
                     LastName = "Developer",
                     BirthDate = new DateTime(1992, 8, 15),
-                    ZodiacSign = "Leo", // English zodiac sign
+                    ZodiacSign = "Leo",
                     TechStack = "Python, Django, PostgreSQL",
                     ExperienceLevel = "Senior",
                     TotalPoints = 1500,
@@ -95,7 +91,7 @@ namespace devlife_backend.Data
                     FirstName = "Ana",
                     LastName = "Coder",
                     BirthDate = new DateTime(1988, 11, 5),
-                    ZodiacSign = "Scorpio", // English zodiac sign
+                    ZodiacSign = "Scorpio",
                     TechStack = "C#, .NET, Azure",
                     ExperienceLevel = "Senior",
                     TotalPoints = 2000,

@@ -26,7 +26,6 @@ namespace devlife_backend.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"⚠️ Seeding failed: {ex.Message}");
-                // Don't throw - let the app continue
             }
         }
 
@@ -34,7 +33,6 @@ namespace devlife_backend.Services
         {
             try
             {
-                // Seed horoscopes
                 var horoscopes = _mongoDb.GetCollection<MongoHoroscope>("horoscopes");
                 if (await horoscopes.CountDocumentsAsync(_ => true) == 0)
                 {
@@ -56,7 +54,6 @@ namespace devlife_backend.Services
                     Console.WriteLine("✅ Horoscopes seeded");
                 }
 
-                // Seed code snippets
                 var snippets = _mongoDb.GetCollection<MongoCodeSnippet>("code_snippets");
                 if (await snippets.CountDocumentsAsync(_ => true) == 0)
                 {
@@ -84,7 +81,6 @@ namespace devlife_backend.Services
                     Console.WriteLine("✅ Code snippets seeded");
                 }
 
-                // Seed code challenges
                 var challenges = _mongoDb.GetCollection<CodeChallenge>("code_challenges");
                 if (await challenges.CountDocumentsAsync(_ => true) == 0)
                 {
@@ -110,7 +106,6 @@ namespace devlife_backend.Services
                     Console.WriteLine("✅ Code challenges seeded");
                 }
 
-                // Seed dating profiles
                 var profiles = _mongoDb.GetCollection<DatingProfile>("dating_profiles");
                 if (await profiles.CountDocumentsAsync(_ => true) == 0)
                 {
@@ -138,7 +133,6 @@ namespace devlife_backend.Services
                     Console.WriteLine("✅ Dating profiles seeded");
                 }
 
-                // Seed meeting excuses
                 var excuses = _mongoDb.GetCollection<MeetingExcuse>("meeting_excuses");
                 if (await excuses.CountDocumentsAsync(_ => true) == 0)
                 {
